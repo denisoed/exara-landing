@@ -20,7 +20,7 @@
     --spacing-xl: 64px;
     --spacing-xxl: 96px;
 
-    --border-radius: 8px;
+    --border-radius: 16px;
     --transition-speed: 0.3s;
 
     --bg-color: #121212;       /* Основной темный фон */
@@ -250,7 +250,6 @@ section {
     margin-bottom: 0; /* Убрать отступ у последнего элемента */
 }
 
-.features-section .feature-visual,
 .features-section .feature-content {
     flex: 1; /* Обе колонки занимают равное пространство */
     /* Или можно задать разные пропорции, например: */
@@ -260,7 +259,7 @@ section {
 /* Стилизация блока с картинкой/иллюстрацией */
 .features-section .feature-visual .visual-placeholder {
     background-color: var(--card-bg); /* Оставляем фон для плейсхолдера */
-    border: 1px dashed var(--border-color);
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -269,16 +268,12 @@ section {
     border-radius: var(--border-radius);
     min-height: 300px; /* Делаем плейсхолдер выше */
     width: 100%;
-    padding: var(--spacing-md); /* Немного внутреннего отступа */
-    /* Убираем центрирование и фон/бордер у родителя */
-    margin: 0;
-    width: 100%; /* Занимает всю ширину колонки */
+    padding: var(--spacing-sm); /* Немного внутреннего отступа */
 }
 .features-section .feature-visual img { /* Стили для реальной картинки */
     border-radius: var(--border-radius);
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 300px;
+    object-fit: contain;
 }
 
 
