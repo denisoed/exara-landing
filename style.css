@@ -1,0 +1,757 @@
+/* styles.css */
+
+/* ------------------------- */
+/* ----- BASE & RESET ----- */
+/* ------------------------- */
+:root {
+    --text-color: #e0e0e0; /* Основной цвет текста */
+    --text-muted: #a0a0a0; /* Приглушенный текст */
+    --accent-color: #3083FF; /* Акцентный синий */
+    --accent-hover: #509bff; /* Акцентный при наведении */
+    --border-color: #333; /* Цвет границ */
+    --gradient-start: #1a1a1a;
+    --gradient-end: #3083FF;
+
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    --spacing-xxl: 96px;
+
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+
+    --bg-color: #121212;       /* Основной темный фон */
+    --bg-color-alt: #1a1a1a;   /* Альтернативный, чуть светлее/другой */
+    --card-bg: #1e1e1e;       /* Фон карточек/секций */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px; /* Базовый размер шрифта */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 3rem; /* ~48px */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem; /* ~36px */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+    font-size: 1.5rem; /* ~24px */
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ------------------------- */
+/* ----- LAYOUT & UTILS ----- */
+/* ------------------------- */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Placeholder styles */
+.video-placeholder,
+.icon-placeholder,
+.screenshot-placeholder {
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    border-radius: var(--border-radius);
+}
+.video-placeholder {
+    min-height: 300px; /* Adjust as needed */
+    margin: var(--spacing-lg) auto;
+    max-width: 700px; /* Limit width */
+}
+.icon-placeholder {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md) auto; /* Center icon above text */
+    border-radius: 50%; /* Make icons circular */
+}
+.screenshot-placeholder {
+    min-height: 200px;
+    margin-top: var(--spacing-md);
+}
+
+/* ------------------------- */
+/* ----- BUTTONS ------------ */
+/* ------------------------- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+    margin-top: var(--spacing-sm); /* Add some space above buttons */
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Default Button Style (e.g., for Free plan) */
+.cta-button {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+.cta-button:hover {
+    background-color: #333; /* Slightly lighter grey on hover */
+}
+
+/* Accent Button Style (Primary CTAs, Pro plan) */
+.cta-button.accent-button {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(48, 131, 255, 0.3); /* Subtle glow */
+}
+.cta-button.accent-button:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(80, 155, 255, 0.4);
+}
+
+/* ------------------------- */
+/* ----- HERO SECTION ------- */
+/* ------------------------- */
+.hero-section {
+    text-align: center;
+    padding-top: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xl);
+    border-top: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at bottom,
+        rgba(48, 131, 255, 0.01) 0%,
+        rgba(48, 131, 255, 0.01) 30%,
+        transparent 70%
+    );
+    z-index: 0;
+} */
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: var(--spacing-md) auto var(--spacing-lg) auto;
+}
+
+.hero-section .language-support {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-sm);
+}
+
+/* ------------------------- */
+/* ----- FEATURES SECTION --- */
+/* ------------------------- */
+.features-section .feature-item {
+    display: flex;              /* Располагаем visual и content в строку */
+    align-items: center;        /* Вертикальное выравнивание по центру */
+    gap: var(--spacing-xl);     /* Пространство между картинкой и текстом */
+    margin-bottom: var(--spacing-xxl); /* Больше отступа между фичами */
+    /* Сбрасываем стили от старой плитки */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-align: left; /* Текст слева по умолчанию */
+    transition: none;
+    box-shadow: none;
+}
+
+.features-section .feature-item:last-child {
+    margin-bottom: 0; /* Убрать отступ у последнего элемента */
+}
+
+.features-section .feature-visual,
+.features-section .feature-content {
+    flex: 1; /* Обе колонки занимают равное пространство */
+    /* Или можно задать разные пропорции, например: */
+    /* flex-basis: 45%; */
+}
+
+/* Стилизация блока с картинкой/иллюстрацией */
+.features-section .feature-visual .visual-placeholder {
+    background-color: var(--card-bg); /* Оставляем фон для плейсхолдера */
+    border: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1rem; /* Немного крупнее текст */
+    border-radius: var(--border-radius);
+    min-height: 300px; /* Делаем плейсхолдер выше */
+    width: 100%;
+    padding: var(--spacing-md); /* Немного внутреннего отступа */
+    /* Убираем центрирование и фон/бордер у родителя */
+    margin: 0;
+    width: 100%; /* Занимает всю ширину колонки */
+}
+.features-section .feature-visual img { /* Стили для реальной картинки */
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Стилизация текстового блока */
+.features-section .feature-content h3 {
+    margin-top: 0; /* Убрать лишний отступ сверху */
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.8rem; /* Сделать заголовок фичи чуть крупнее */
+    color: #fff;
+}
+
+.features-section .feature-content p {
+    color: var(--text-muted);
+    font-size: 1rem; /* Стандартный размер параграфа */
+    margin-bottom: 0;
+    line-height: 1.7; /* Чуть больше межстрочный интервал для читаемости */
+}
+
+/* Чередование: каждая вторая (.feature-item) строка меняет порядок колонок */
+.features-section .feature-item:nth-child(even) {
+    flex-direction: row-reverse; /* Меняем порядок visual и content */
+}
+
+/* Адаптивность для Шахматного Порядка */
+@media (max-width: 768px) {
+    .features-section .feature-item,
+    .features-section .feature-item:nth-child(even) { /* Применяем ко всем на мобильных */
+        flex-direction: column; /* Ставим картинку над текстом */
+        gap: var(--spacing-lg); /* Уменьшаем отступ между картинкой и текстом */
+        margin-bottom: var(--spacing-xl); /* Уменьшаем отступ между фичами */
+        text-align: center; /* Центрируем текст под картинкой */
+    }
+
+    .features-section .feature-visual .visual-placeholder {
+        min-height: 200px; /* Уменьшаем высоту плейсхолдера на мобильных */
+        margin-bottom: var(--spacing-md); /* Добавляем отступ снизу для плейсхолдера/картинки */
+    }
+
+    .features-section .feature-content h3 {
+        font-size: 1.5rem; /* Уменьшаем заголовок */
+    }
+    .features-section .feature-content p {
+        font-size: 0.95rem; /* Уменьшаем текст */
+    }
+}
+
+/* ------------------------- */
+/* ----- USE CASES SECTION -- */
+/* ------------------------- */
+/* Reuse feature styles if layout is similar */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.use-case-item {
+    background-color: transparent; /* Less prominent than features */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+.use-case-item .icon-placeholder {
+    background-color: rgba(48, 131, 255, 0.1); /* Subtle blue background for icons */
+    border: none;
+    color: var(--accent-color);
+}
+.use-case-item h3 {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+.use-case-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ------------------------- */
+/* ----- TESTIMONIALS ------ */
+/* ------------------------- */
+/* Remove old grid styles */
+/* .testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+} */
+
+.testimonials-section {
+    position: relative; /* Needed for absolute positioned nav buttons */
+}
+
+/* Swiper container */
+.testimonials-swiper {
+    width: 100%;
+    padding-top: var(--spacing-md); /* Space for avatar potentially overflowing */
+    padding-bottom: 60px; /* Space for pagination */
+    margin-top: var(--spacing-lg);
+}
+
+/* Individual slide/testimonial item */
+.swiper-slide.testimonial-item {
+    /* Ensure flex properties are applied for layout within slide */
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Let Swiper manage height, but content drives it */
+
+    /* Restore original card styling */
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    /* box-sizing: border-box; - Removed, usually not needed if padding is consistent */
+    /* margin-bottom: 0; - Removed, Swiper handles spacing */
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+    object-fit: cover; /* Ensure avatar covers the area */
+    /* align-self: center; - Removed, revert to default alignment */
+}
+
+.testimonial-item blockquote {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Push cite to the bottom */
+    border-left: 3px solid var(--accent-color);
+    padding-left: var(--spacing-md);
+    /* text-align: left; - Removed, revert to default alignment */
+}
+
+.testimonial-item cite {
+    font-style: normal;
+    margin-top: auto; /* Push to bottom */
+    /* text-align: center; - Removed, revert to default alignment */
+}
+
+.testimonial-item .name {
+    display: block;
+    font-weight: 600;
+    color: #fff;
+}
+
+.testimonial-item .title {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- Swiper Controls --- */
+.swiper {
+    padding-bottom: 60px !important;
+}
+
+/* Pagination dots */
+.swiper-pagination {
+    bottom: -5px !important; /* Position pagination lower */
+}
+
+.swiper-pagination-bullet {
+    background-color: #ffffff !important; /* Changed to white */
+    opacity: 0.5; /* Adjust opacity for inactive state */
+    width: 10px;
+    height: 10px;
+    transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-color);
+    opacity: 1;
+}
+
+/* ------------------------- */
+/* ----- PRICING SECTION ---- */
+/* ------------------------- */
+.pricing-section {
+    /* Apply the gradient background */
+    background: linear-gradient(145deg, var(--bg-color) 10%, var(--accent-color) 50%, var(--bg-color) 90%);
+    /* Adjust gradient stops and angle as needed */
+    /* Alternative: subtle gradient */
+    /* background: linear-gradient(180deg, var(--bg-color) 0%, #1a2a4a 50%, var(--bg-color) 100%); */
+    overflow: hidden; /* Contain pseudo-elements if used */
+    position: relative; /* For potential pseudo-elements */
+}
+/* Ensure text is readable over gradient */
+.pricing-section h2, .pricing-section p {
+    position: relative; /* Ensure text is above potential pseudo-element overlays */
+    z-index: 1;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    align-items: stretch; /* Make cards same height */
+}
+
+.pricing-plan {
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.pricing-plan:hover {
+     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-plan h3 {
+    margin-bottom: var(--spacing-sm);
+    color: #fff;
+}
+
+.pricing-plan .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--spacing-sm);
+}
+.pricing-plan .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.pricing-plan .plan-description {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+    min-height: 40px; /* Ensure consistent height */
+}
+
+.pricing-plan .plan-features {
+    text-align: left;
+    margin: var(--spacing-lg) 0;
+    flex-grow: 1; /* Push button to bottom */
+}
+
+.pricing-plan .plan-features li {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.pricing-plan .plan-features .checkmark {
+    color: var(--accent-color);
+    font-weight: bold; /* Make checkmark stand out */
+}
+
+.pricing-plan .cta-button {
+    margin-top: auto; /* Push button to bottom */
+    width: 100%;
+}
+
+/* Highlight the PRO plan */
+.pricing-plan.plan-pro {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px rgba(48, 131, 255, 0.2);
+}
+.pricing-plan.plan-pro h3 {
+    color: var(--accent-color);
+}
+
+.pricing-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+/* ------------------------- */
+/* ----- FAQ SECTION -------- */
+/* ------------------------- */
+.faq-list {
+    max-width: 800px; /* Limit width for readability */
+    margin: var(--spacing-lg) auto 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    text-align: left;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+.faq-question:hover {
+    color: var(--accent-color);
+}
+
+/* Simple +/- icon */
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform var(--transition-speed) ease;
+}
+.faq-item.active .faq-question::after {
+    content: '−'; /* Use minus sign */
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding-left: var(--spacing-md); /* Indent answer slightly */
+}
+.faq-answer p {
+    padding: var(--spacing-md) 0;
+    margin-bottom: 0;
+    color: var(--text-muted);
+}
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Adjust if answers are longer */
+    padding-bottom: var(--spacing-md);
+}
+
+
+/* ------------------------- */
+/* ----- FINAL CTA SECTION -- */
+/* ------------------------- */
+.final-cta-section {
+    text-align: center;
+    background-color: var(--card-bg); /* Give it a distinct background */
+    padding: var(--spacing-xl) 0;
+}
+.final-cta-section h2 {
+    margin-bottom: var(--spacing-sm);
+}
+.final-cta-section p {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ------------------------- */
+/* ----- FOOTER SECTION ----- */
+/* ------------------------- */
+.footer-section {
+    padding: var(--spacing-lg) 0;
+    background-color: #0c0c0c; /* Even darker footer */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.footer-logo span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.footer-logo img {
+    max-height: 30px; /* Adjust footer logo size */
+    opacity: 0.8;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    margin: 0 var(--spacing-sm);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.footer-links a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    width: 100%; /* Ensure it takes full width on small screens */
+    text-align: center; /* Center copyright on small screens */
+    margin-top: var(--spacing-md); /* Space above copyright when wrapped */
+}
+
+/* Helper class for alternating backgrounds */
+.section-alt-bg {
+    background-color: var(--bg-color-alt);
+}
+
+/* ------------------------- */
+/* ----- RESPONSIVENESS ----- */
+/* ------------------------- */
+
+/* Tablet and smaller desktops */
+@media (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.3rem; }
+
+    .container { width: 90%; }
+
+    .pricing-grid { grid-template-columns: 1fr; } /* Stack pricing plans */
+    .advanced-grid { grid-template-columns: 1fr; } /* Stack advanced features */
+    .features-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .use-cases-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .testimonials-container { grid-template-columns: 1fr; } /* Stack testimonials */
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    section { padding: var(--spacing-lg) 0; }
+    .hero-section { padding-top: var(--spacing-xl); }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+
+    .footer-content {
+        flex-direction: column; /* Stack footer items */
+        text-align: center;
+    }
+    .footer-links {
+        margin: var(--spacing-md) 0;
+    }
+    .footer-links a {
+        margin: 0 var(--spacing-xs); /* Reduce space between links */
+        display: inline-block; /* Prevent wrapping issues */
+        margin-bottom: var(--spacing-xs);
+    }
+    .copyright {
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 576px) {
+    body { font-size: 15px; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+
+    .container { width: 95%; padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+    .cta-button { padding: 10px 20px; font-size: 0.95rem; }
+    .pricing-plan { padding: var(--spacing-md); }
+    .faq-question { font-size: 1rem; }
+}
