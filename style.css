@@ -347,6 +347,10 @@ section {
     border: none;
     color: var(--accent-color);
 }
+.use-case-item .icon-placeholder img {
+    height: 30px;
+    object-fit: contain;
+}
 .use-case-item h3 {
     margin-top: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
