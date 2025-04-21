@@ -67,4 +67,29 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    // --- Cookie Consent --- //
+    const cookieConsent = document.getElementById('cookie-consent');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    
+    // Check if user has already accepted cookies
+    const hasAcceptedCookies = localStorage.getItem('cookieConsent') === 'accepted';
+    
+    // Show the cookie consent popup if user hasn't accepted cookies yet
+    if (!hasAcceptedCookies && cookieConsent) {
+        cookieConsent.style.display = 'block';
+    }
+    
+    // Add event listener to the accept button
+    if (cookieAcceptBtn) {
+        cookieAcceptBtn.addEventListener('click', () => {
+            // Store consent in localStorage
+            localStorage.setItem('cookieConsent', 'accepted');
+            
+            // Hide the cookie consent popup
+            if (cookieConsent) {
+                cookieConsent.style.display = 'none';
+            }
+        });
+    }
+
 });
