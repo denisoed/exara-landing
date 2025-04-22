@@ -1,0 +1,67 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Exara Project Rules
+
+## Naming Conventions
+- Use clear, descriptive class names for HTML elements
+- Follow BEM (Block Element Modifier) methodology for CSS classes
+- Use kebab-case for CSS classes and IDs
+- Use camelCase for JavaScript variables and functions
+
+## Design System
+- Primary color: [TBD] 
+- Secondary color: [TBD]
+- Accent color: [TBD]
+- Font: [TBD] for headings, [TBD] for body text
+- Button styles: accent-button for primary actions, secondary-button for secondary actions
+- Section alternate styling: section-alt-bg class for sections with alternate background
+
+## Code Organization
+- HTML structure follows a clear section-based organization
+- CSS is organized by component/section
+- JavaScript follows a modular approach
+
+## Responsive Design
+- Mobile-first approach
+- Breakpoints: [TBD]
+- Navigation collapses to hamburger menu on mobile
+- Flexbox/Grid layouts adjust for different screen sizes
+
+## Content Patterns
+- Clear, concise headings
+- Value-focused copy highlighting benefits
+- Pain points described before solutions
+- Features presented with both visual and textual elements
+- Social proof through testimonials
+- Clear calls-to-action throughout the page
+
+## Interaction Patterns
+- Smooth scrolling for navigation links
+- Mobile menu toggle for small screens
+- Interactive elements have hover/focus states
+- Forms provide clear validation feedback
+
+## Project Workflow
+- Development primarily focused on landing page first
+- Extension development to follow after landing page completion
+- Visual assets stored in public/ directory
+- External libraries loaded via CDN
+
+## User Preferences
+- [To be populated as we learn more about user preferences]
+
+## Known Technical Challenges
+- Cross-browser compatibility for newer CSS features
+- Ensuring optimal mobile experience for complex layouts
+- Balancing visual richness with performance
+
+## Common Solutions
+- Use CSS custom properties for consistent theming
+- Implement progressive enhancement for older browsers
+- Optimize images for performance
+- Minify production CSS/JS
+
+This document will be updated as new patterns emerge during development.
