@@ -26,6 +26,7 @@
     --bg-color: #121212;       /* Основной темный фон */
     --bg-color-alt: #1a1a1a;   /* Альтернативный, чуть светлее/другой */
     --card-bg: #1e1e1e;       /* Фон карточек/секций */
+    --header-height: 70px;     /* Высота шапки сайта */
 }
 
 * {
@@ -44,6 +45,191 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     font-size: 16px; /* Базовый размер шрифта */
+    padding-top: var(--header-height); /* Добавляем отступ для фиксированного хедера */
+}
+
+/* ------------------------- */
+/* ----- HEADER SECTION ---- */
+/* ------------------------- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: rgba(18, 18, 18, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: var(--spacing-md) 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    margin-right: var(--spacing-md);
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.main-nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-sm);
+    margin-bottom: 0;
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-links li a.nav-cta {
+    color: #fff;
+    background-color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    margin-left: var(--spacing-md);
+    text-align: center;
+}
+
+.nav-links li a.nav-cta:hover {
+    background-color: var(--accent-hover);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.mobile-menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--bg-color-alt);
+        padding-top: var(--header-height);
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: var(--spacing-sm) 0;
+    }
+
+    .nav-links li a.nav-cta {
+        margin-left: 0;
+    }
+
+    /* Transformed hamburger to X */
+    .mobile-menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}
+
+/* Other responsive adjustments */
+@media (max-width: 576px) {
+    .logo span {
+        font-size: 1.3rem;
+    }
+    
+    .logo img {
+        height: 30px;
+    }
+
+    .site-header {
+        height: 70px;
+    }
+
+    body {
+        padding-top: 70px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
