@@ -18,6 +18,9 @@ RUN rm -rf /usr/share/nginx/html/nginx.conf \
 # Set proper permissions for all files
 RUN chmod -R 755 /usr/share/nginx/html
 
+ARG api_url
+ENV API_URL=${api_url}
+
 EXPOSE 8080
 
 # Start Nginx server
