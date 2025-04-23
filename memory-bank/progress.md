@@ -14,6 +14,9 @@
 - ✅ FAQ section structure
 - ✅ Contact information
 - ✅ Terms of service and privacy policy pages
+- ✅ Docker configuration for production deployment
+- ✅ SVG file handling for Docker environment
+- ✅ Docker Compose setup for easier deployment
 
 ## In Progress
 - 🟡 Responsive design implementation for all device sizes
@@ -22,6 +25,7 @@
 - 🟡 Call-to-action functionality
 - 🟡 Cross-browser compatibility testing
 - 🟡 Performance optimization
+- 🟡 Docker deployment testing
 
 ## Not Started
 - ⬜ Analytics integration
@@ -34,6 +38,7 @@
 - ⬜ PDF viewer implementation
 - ⬜ Subscription management system
 - ⬜ User dashboard
+- ⬜ CI/CD pipeline for Docker deployment
 
 ## Known Issues
 1. **Landing Page**:
@@ -52,19 +57,27 @@
    - CSS and JavaScript files need minification
    - Potential render-blocking resources to address
 
+4. **Deployment**:
+   - Docker configuration requires final testing in production environment
+   - Need to establish deployment workflow
+
 ## Next Milestones
 1. **Landing Page Completion**: Finalize all visual elements, responsive design, and interactions
    - Target: [Date TBD]
    - Owner: [TBD]
 
-2. **Browser Extension MVP**: Develop core functionality for text highlighting and explanation
+2. **Production Deployment**: Complete Docker setup and launch staging environment
    - Target: [Date TBD]
    - Owner: [TBD]
 
-3. **AI Integration**: Connect extension to explanation service
+3. **Browser Extension MVP**: Develop core functionality for text highlighting and explanation
    - Target: [Date TBD]
    - Owner: [TBD]
 
-4. **Public Beta Release**: Limited release for testing and feedback
+4. **AI Integration**: Connect extension to explanation service
+   - Target: [Date TBD]
+   - Owner: [TBD]
+
+5. **Public Beta Release**: Limited release for testing and feedback
    - Target: [Date TBD]
    - Owner: [TBD] 

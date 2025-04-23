@@ -8,6 +8,9 @@ The project is currently focused on the landing page for Exara, which serves as 
 - Basic styling with CSS has been applied
 - Core UI components have been established
 - Key sections are in place (hero, features, pain points, solutions, etc.)
+- Docker configuration added for production deployment with Nginx
+- Fixed SVG file access issues in Docker setup
+- Added docker-compose.yml for easier container management
 
 ## Current Status
 The landing page is in development with primary structure in place. The site includes:
@@ -17,6 +20,8 @@ The landing page is in development with primary structure in place. The site inc
 - Solution section describing how Exara solves these problems
 - Features section detailing key functionality
 - Additional sections for use cases, testimonials, pricing, and FAQ
+- Docker setup for production deployment with Nginx serving static files
+- SVG file handling properly configured
 
 ## Active Decisions
 1. **Visual Design**: Finalizing visual elements, imagery, and animations
@@ -24,6 +29,8 @@ The landing page is in development with primary structure in place. The site inc
 3. **Responsive Implementation**: Ensuring proper display across all device sizes
 4. **Call-to-Action Optimization**: Maximizing conversion for extension installation
 5. **Performance Optimization**: Ensuring fast load times and smooth interactions
+6. **Deployment Strategy**: Using Docker with Nginx for production environment
+7. **Asset Management**: Proper handling of SVG and other static files
 
 ## Next Steps
 
@@ -33,12 +40,14 @@ The landing page is in development with primary structure in place. The site inc
 - Implement smooth scrolling and navigation
 - Add installation button functionality
 - Optimize for performance (image compression, code minification)
+- Test Docker deployment for production
 
 ### Short-term Goals
 - Implement analytics tracking
 - Add internationalization support for multiple languages
 - Create A/B testing for key landing page elements
 - Connect to backend systems for user registration/authentication
+- Set up CI/CD pipeline for Docker deployment
 
 ### Medium-term Goals
 - Develop the actual browser extension core functionality
