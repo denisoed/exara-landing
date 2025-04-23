@@ -18,9 +18,9 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "deploy": "bumpp"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/ui": "2.21.0",

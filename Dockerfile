@@ -1,27 +1,34 @@
-FROM nginx:alpine
+# syntax = docker/dockerfile:1
 
-# Copy custom nginx config
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+ARG NODE_VERSION=20.18.0
 
-# Copy static website
-COPY ./ /usr/share/nginx/html/
+FROM node:${NODE_VERSION}-slim as base
 
-# Remove files not needed in production
-RUN rm -rf /usr/share/nginx/html/nginx.conf \
-    /usr/share/nginx/html/Dockerfile \
-    /usr/share/nginx/html/.git \
-    /usr/share/nginx/html/.gitignore \
-    /usr/share/nginx/html/.dockerignore \
-    /usr/share/nginx/html/memory-bank \
-    /usr/share/nginx/html/.cursor
+ARG PORT=3000
 
-# Set proper permissions for all files
-RUN chmod -R 755 /usr/share/nginx/html
+WORKDIR /src
+
+# Build
+FROM base as build
+
+COPY --link package.json package-lock.json .
+RUN npm install
+
+COPY --link . .
+
+RUN npm run build
+
+# Run
+FROM base
 
 ARG api_url
+
+ENV NODE_ENV=production
 ENV API_URL=${api_url}
+ENV PORT=$PORT
 
-EXPOSE 8080
+COPY --from=build /src/.output /src/.output
+# Optional, only needed if you rely on unbundled dependencies
+# COPY --from=build /src/node_modules /src/node_modules
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"] 
+CMD [ "node", ".output/server/index.mjs" ]

@@ -7,4 +7,7 @@ memory-bank
 *.md
 .dockerignore
 Dockerfile
-README.md 
+README.md
+.output
+.nuxt
+docs
