@@ -18,8 +18,7 @@ RUN rm -rf /usr/share/nginx/html/nginx.conf \
 # Set proper permissions for all files
 RUN chmod -R 755 /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+EXPOSE 8080
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"] 

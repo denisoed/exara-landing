@@ -36,5 +36,5 @@ jobs:
           docker pull ghcr.io/${{ secrets.GHCR_USERNAME }}/exara-landing:latest &&
           docker stop exara-landing || true &&
           docker rm exara-landing || true &&
-          docker run -d --name exara-landing --restart=always --log-driver=syslog ghcr.io/${{ secrets.GHCR_USERNAME }}/exara-landing:latest &&
+          docker run -d --name exara-landing --restart=always --log-driver=syslog ${{ secrets.PARAMS }} ghcr.io/${{ secrets.GHCR_USERNAME }}/exara-landing:latest &&
           docker image prune -a -f --filter 'until=1h'"

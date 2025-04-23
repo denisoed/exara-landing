@@ -31,10 +31,10 @@ docker build -t exara-landing .
 To run the container after building:
 
 ```bash
-docker run -p 80:80 exara-landing
+docker run -p 8080:8080 exara-landing
 ```
 
-This will start the Nginx server and make the website available at http://localhost.
+This will start the Nginx server and make the website available at http://localhost:8080.
 
 ### Configuration
 
