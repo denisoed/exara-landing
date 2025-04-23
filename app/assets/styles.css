@@ -630,6 +630,10 @@ section {
 
 /* Pagination dots */
 .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
     bottom: -5px !important; /* Position pagination lower */
 }
 
@@ -638,6 +642,7 @@ section {
     opacity: 0.5; /* Adjust opacity for inactive state */
     width: 10px;
     height: 10px;
+    border-radius: 50%;
     transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 

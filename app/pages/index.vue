@@ -1,52 +1,110 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exara - AI-extension for instant understanding</title>
-    <meta name="description" content="Exara is an AI‑extension for browsers that instantly explains unfamiliar words and terms right on the page. Highlight text – get an answer.">
-    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
-    <link rel="manifest" href="public/site.webmanifest">
-    <!-- Сюда нужно будет подключить CSS файл -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Подключение CSS Swiper.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <!-- Можно добавить фавикон -->
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
-</head>
-<body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">
-                        <img src="public/logo.svg" alt="Exara Logo">
-                        <span>Exara</span>
-                    </a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#use-cases">Use Cases</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#install" class="nav-cta">Install Now</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+<script setup>
+onMounted(() => {
+    // --- Cookie Consent --- //
+    const cookieConsent = document.getElementById('cookie-consent');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    
+    // Check if user has already accepted cookies
+    const hasAcceptedCookies = localStorage.getItem('cookieConsent') === 'accepted';
+    
+    // Show the cookie consent popup if user hasn't accepted cookies yet
+    if (!hasAcceptedCookies && cookieConsent) {
+        cookieConsent.style.display = 'block';
+    }
+    
+    // Add event listener to the accept button
+    if (cookieAcceptBtn) {
+        cookieAcceptBtn.addEventListener('click', () => {
+            // Store consent in localStorage
+            localStorage.setItem('cookieConsent', 'accepted');
+            
+            // Hide the cookie consent popup
+            if (cookieConsent) {
+                cookieConsent.style.display = 'none';
+            }
+        });
+    }
 
+    // --- Mobile menu toggle --- //
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // --- Smooth scrolling for anchor links --- //
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- Header scroll effect --- //
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // --- FAQ Accordion --- //
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            const currentlyActive = document.querySelector('.faq-item.active');
+            if (currentlyActive && currentlyActive !== item) {
+                currentlyActive.classList.remove('active');
+                currentlyActive.querySelector('.faq-answer').style.maxHeight = 0;
+            }
+
+            item.classList.toggle('active');
+            const answer = item.querySelector('.faq-answer');
+            if (item.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = 0;
+            }
+        });
+    });
+})
+</script>
+
+<template>
+  <main>
     <!-- Hero Section -->
     <section id="hero" class="hero-section section-alt-bg">
         <div class="container">
@@ -55,7 +113,7 @@
                 Exara is an AI‑extension for browsers that instantly explains unfamiliar words and terms right on the page. Highlight text – get an answer.
             </p>
             <div class="video-placeholder">
-                <video src="public/video/demo.mp4" autoplay muted loop></video>
+                <video src="@/assets/video/demo.mp4" autoplay muted loop></video>
             </div>
             <a href="#install" class="cta-button accent-button">Install for free</a>
         </div>
@@ -83,7 +141,7 @@
                 <div class="counters-grid">
                     <div class="counter-item">
                         <div class="counter-icon">
-                            <img src="public/painIcons/search.svg" alt="Поисковые запросы">
+                            <img src="@/assets/painIcons/search.svg" alt="Поисковые запросы">
                         </div>
                         <div class="counter-number">15 000</div>
                         <div class="counter-text">search requests per year — just to decipher terms</div>
@@ -91,7 +149,7 @@
                     
                     <div class="counter-item">
                         <div class="counter-icon">
-                            <img src="public/painIcons/time.svg" alt="Отвлечения">
+                            <img src="@/assets/painIcons/time.svg" alt="Отвлечения">
                         </div>
                         <div class="counter-number">45 sec</div>
                         <div class="counter-text">Average reader is distracted every 45 seconds</div>
@@ -99,7 +157,7 @@
                     
                     <div class="counter-item">
                         <div class="counter-icon">
-                            <img src="public/painIcons/abandon.svg" alt="Брошенные статьи">
+                            <img src="@/assets/painIcons/abandon.svg" alt="Брошенные статьи">
                         </div>
                         <div class="counter-number">60%</div>
                         <div class="counter-text">readers abandon articles, not reading them due to too many «google‑times»</div>
@@ -121,7 +179,7 @@
             <div class="solution-grid">
                 <div class="solution-item">
                     <div class="solution-icon">
-                        <img src="public/solutionIcons/tabs.svg" alt="Никаких новых вкладок">
+                        <img src="@/assets/solutionIcons/tabs.svg" alt="Никаких новых вкладок">
                     </div>
                     <h3>No new tabs</h3>
                     <p>Highlight the word, get the answer right on the page</p>
@@ -129,7 +187,7 @@
                 
                 <div class="solution-item">
                     <div class="solution-icon">
-                        <img src="public/solutionIcons/context.svg" alt="Без потери контекста">
+                        <img src="@/assets/solutionIcons/context.svg" alt="Без потери контекста">
                     </div>
                     <h3>Without losing context</h3>
                     <p>The explanation appears next to the highlighted text</p>
@@ -137,7 +195,7 @@
                 
                 <div class="solution-item">
                     <div class="solution-icon">
-                        <img src="public/solutionIcons/everywhere.svg" alt="Всегда под рукой">
+                        <img src="@/assets/solutionIcons/everywhere.svg" alt="Всегда под рукой">
                     </div>
                     <h3>Always at hand</h3>
                     <p>Works on any website and PDF (through the built‑in viewer)</p>
@@ -145,7 +203,7 @@
                 
                 <div class="solution-item">
                     <div class="solution-icon">
-                        <img src="public/solutionIcons/time-save.svg" alt="Экономит время">
+                        <img src="@/assets/solutionIcons/time-save.svg" alt="Экономит время">
                     </div>
                     <h3>Saves time</h3>
                     <p>Get instant explanations in seconds, right on the page</p>
@@ -168,7 +226,7 @@
                 <div class="feature-visual">
                     <!-- Замените на реальную картинку/иллюстрацию -->
                     <div class="visual-placeholder">
-                        <img src="public/features/highlight-and-understand.png" alt="Highlight and understand">
+                        <img src="@/assets/features/highlight-and-understand.png" alt="Highlight and understand">
                     </div>
                 </div>
                 <div class="feature-content">
@@ -182,7 +240,7 @@
                 <div class="feature-visual">
                     <!-- Замените на реальную картинку/иллюстрацию -->
                     <div class="visual-placeholder">
-                        <img src="public/features/ask-clarifying-questions.png" alt="Ask clarifying questions">
+                        <img src="@/assets/features/ask-clarifying-questions.png" alt="Ask clarifying questions">
                     </div>
                 </div>
                  <div class="feature-content">
@@ -196,7 +254,7 @@
                 <div class="feature-visual">
                     <!-- Замените на реальную картинку/иллюстрацию -->
                     <div class="visual-placeholder">
-                        <img src="public/features/make-it-simpler.png" alt="Make it simpler">
+                        <img src="@/assets/features/make-it-simpler.png" alt="Make it simpler">
                     </div>
                 </div>
                 <div class="feature-content">
@@ -210,7 +268,7 @@
                 <div class="feature-visual">
                     <!-- Замените на реальную картинку/иллюстрацию -->
                     <div class="visual-placeholder">
-                        <img src="public/features/multilingual-support.png" alt="Multilingual support">
+                        <img src="@/assets/features/multilingual-support.png" alt="Multilingual support">
                     </div>
                 </div>
                  <div class="feature-content">
@@ -230,7 +288,7 @@
                 <div class="use-case-item">
                     <!-- Иконка/Иллюстрация -->
                     <div class="icon-placeholder">
-                        <img src="public/useCasesIcons/student.svg" alt="Иконка Студента">
+                        <img src="@/assets/useCasesIcons/student.svg" alt="Иконка Студента">
                     </div>
                     <h3>Students and Researchers</h3>
                     <p>Quick understanding of terms in articles and educational materials.</p>
@@ -238,7 +296,7 @@
                 <div class="use-case-item">
                     <!-- Иконка/Иллюстрация -->
                     <div class="icon-placeholder">
-                        <img src="public/useCasesIcons/professional.svg" alt="Иконка Профессионала">
+                        <img src="@/assets/useCasesIcons/professional.svg" alt="Иконка Профессионала">
                     </div>
                     <h3>Professionals</h3>
                     <p>Parsing complex documentation, reports, industry news.</p>
@@ -246,7 +304,7 @@
                 <div class="use-case-item">
                     <!-- Иконка/Иллюстрация -->
                     <div class="icon-placeholder">
-                        <img src="public/useCasesIcons/reader.svg" alt="Иконка Читателя">
+                        <img src="@/assets/useCasesIcons/reader.svg" alt="Иконка Читателя">
                     </div>
                     <h3>News Readers</h3>
                     <p>Easy understanding of unfamiliar words and concepts in articles.</p>
@@ -254,7 +312,7 @@
                  <div class="use-case-item">
                     <!-- Иконка/Иллюстрация -->
                     <div class="icon-placeholder">
-                        <img src="public/useCasesIcons/language.svg" alt="Иконка Изучения">
+                        <img src="@/assets/useCasesIcons/language.svg" alt="Иконка Изучения">
                     </div>
                     <h3>Language Learners</h3>
                     <p>Instant explanation of unfamiliar vocabulary in context.</p>
@@ -268,46 +326,7 @@
         <div class="container">
             <h2>What users say</h2>
             <!-- Slider main container -->
-            <div class="swiper testimonials-swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide testimonial-item">
-                        <img src="avatar-placeholder-1.png" alt="Фото пользователя" class="testimonial-avatar">
-                        <blockquote>
-                            "Exara saves me a lot of time when reading technical articles. I highlighted a term - got a clear explanation. Super!"
-                        </blockquote>
-                        <cite>
-                            <span class="name">Ivan Petrov</span>
-                            <span class="title">Developer</span>
-                        </cite>
-                    </div>
-                    <div class="swiper-slide testimonial-item">
-                        <img src="avatar-placeholder-2.png" alt="Фото пользователя" class="testimonial-avatar">
-                        <blockquote>
-                            "I use it for studying. It helps me understand complex topics in English. The 'Explain it simply' function is great."
-                        </blockquote>
-                        <cite>
-                            <span class="name">Maria Sidorova</span>
-                            <span class="title">Student</span>
-                        </cite>
-                    </div>
-                    <!-- Добавьте больше слайдов-отзывов по необходимости -->
-                    <div class="swiper-slide testimonial-item">
-                        <img src="avatar-placeholder-1.png" alt="Фото пользователя" class="testimonial-avatar"> <!-- Placeholder -->
-                        <blockquote>
-                            "Finally, I don't need to constantly google unfamiliar terms. Very convenient, thank you!"
-                        </blockquote>
-                        <cite>
-                            <span class="name">Alexey Novikov</span>
-                            <span class="title">Manager</span>
-                        </cite>
-                    </div>
-
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
+            <TestimonialsCarousel />
         </div>
     </section>
 
@@ -386,7 +405,7 @@
                 <div class="faq-item">
                     <button class="faq-question">How do I report bugs or request new features?</button>
                     <div class="faq-answer">
-                        <p>Please visit our <a href="/contact.html">contact page</a> and use the provided contact information to report bugs or request new features.</p>
+                        <p>Please visit our <router-link to="/contact">contact page</router-link> and use the provided contact information to report bugs or request new features.</p>
                     </div>
                 </div>
             </div>
@@ -402,39 +421,15 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/logo.svg" alt="Exara Logo">
-                    <span>Exara</span>
-                </div>
-                <nav class="footer-links">
-                    <a href="/privacy-policy.html">Privacy Policy</a>
-                    <a href="/terms-of-service.html">Terms of Service</a>
-                    <a href="/contact.html">Contact</a>
-                </nav>
-                <p class="copyright">© <span id="current-year"></span> Exara. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Cookie Consent Popup -->
     <div id="cookie-consent" class="cookie-consent">
         <div class="container">
             <p>This website uses cookies to ensure you get the best experience on our website. By continuing to use this site, you consent to our use of cookies.</p>
             <div class="cookie-buttons">
                 <button id="cookie-accept" class="cta-button accent-button">Accept</button>
-                <a href="/privacy-policy.html" class="cta-button">Learn More</a>
+                <router-link to="/privacy-policy" class="cta-button">Learn More</router-link>
             </div>
         </div>
     </div>
-
-    <!-- Подключение JS Swiper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Сюда можно подключить JS для интерактивных элементов (например, FAQ) -->
-    <script src="script.js"></script>
-
-</body>
-</html>
+  </main>
+</template>
