@@ -1,20 +1,17 @@
 {
-  "name": "exara",
+  "name": "exara-landing",
   "version": "1.0.0",
-  "description": "Exara is an ai platform",
+  "description": "Exara is an AI‑extension for browsers that instantly explains unfamiliar words and terms right on the page. Highlight text – get an answer.",
   "author": {
     "name": "Denis Grushkin",
     "url": "https://github.com/denisoed"
   },
   "license": "MIT",
-  "homepage": "https://github.com/zackha/habit",
+  "homepage": "https://github.com/denisoed/exara-landing",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zackha/habit.git"
+    "url": "https://github.com/denisoed/exara-landing.git"
   },
-  "keywords": [
-    "ai"
-  ],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
