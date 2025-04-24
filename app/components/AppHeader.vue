@@ -21,7 +21,7 @@
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="/public/exara-1.0.0-chrome.zip" download class="nav-cta">Install Now</a></li>
+            <li><a href="exara-1.0.0-chrome.zip" download class="nav-cta">Install Now</a></li>
           </ul>
         </nav>
       </div>

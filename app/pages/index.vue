@@ -117,7 +117,7 @@ onMounted(() => {
             Your browser does not support the video tag.
           </video>
         </div>
-        <a href="/public/exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
+        <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
       </div>
     </section>
 
@@ -225,7 +225,7 @@ onMounted(() => {
         </div>
 
         <div class="solution-cta">
-          <a href="/public/exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
+          <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
         </div>
       </div>
     </section>
@@ -374,7 +374,7 @@ onMounted(() => {
                 Multilingual support
               </li>
             </ul>
-            <a href="/public/exara-1.0.0-chrome.zip" download class="cta-button">Start for free</a>
+            <a href="exara-1.0.0-chrome.zip" download class="cta-button">Start for free</a>
           </div>
           <div class="pricing-plan plan-pro">
             <h3>PRO</h3>
@@ -406,7 +406,7 @@ onMounted(() => {
                 Advanced AI models for more accurate explanations
               </li>
             </ul>
-            <a href="/public/exara-1.0.0-chrome.zip" download class="cta-button accent-button">Go to PRO</a>
+            <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Go to PRO</a>
             <p class="pricing-note">*Requests do not expire and carry over to the next period.</p>
           </div>
         </div>
@@ -424,7 +424,7 @@ onMounted(() => {
             <div class="faq-answer">
               <p>
                 Go to the
-                <a href="/public/exara-1.0.0-chrome.zip" download target="_blank">extension store</a>
+                <a href="exara-1.0.0-chrome.zip" download target="_blank">extension store</a>
                 of your browser (e.g. Chrome Web Store) and click "Install". After installation, the Exara icon will appear on the browser toolbar.
               </p>
             </div>
@@ -478,7 +478,7 @@ onMounted(() => {
       <div class="container">
         <h2>Ready to understand more?</h2>
         <p>Install Exara now and start using the AI-assistant for reading.</p>
-        <a href="/public/exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install Exara for free</a>
+        <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install Exara for free</a>
       </div>
     </section>
 
