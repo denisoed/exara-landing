@@ -8,8 +8,11 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { downloadLocalFile } from '~/helpers/downloader';
 import { isChrome, isMobile } from '~/helpers/detecters';
+
+const router = useRouter();
 
 const showModal = ref(false);
 
@@ -18,7 +21,7 @@ const downloadFile = () => {
     showModal.value = true;
   } else {
     downloadLocalFile('exara-1.0.0-chrome.zip', 'exara-1.0.0-chrome.zip');
-    window.open('https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked', '_blank');
+    router.push('/installation-guide');
   }
 };
 </script>

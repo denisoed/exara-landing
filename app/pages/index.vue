@@ -380,7 +380,7 @@ onMounted(() => {
             <h3>PRO</h3>
             <!-- Уточните модель: за пакет или в месяц -->
             <div class="price">
-              5$
+              0$
               <span>/ per 500 requests</span>
             </div>
             <p class="plan-description">For active use and complex tasks.</p>
