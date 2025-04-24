@@ -111,7 +111,10 @@ onMounted(() => {
         <h1>Understand Anything. Instantly.</h1>
         <p class="subtitle">Exara is an AI‑extension for browsers that instantly explains unfamiliar words and terms right on the page. Highlight text – get an answer.</p>
         <div class="video-placeholder">
-          <video src="@/assets/video/demo.mp4" autoplay muted loop></video>
+          <video autoplay muted loop playsinline webkit-playsinline>
+            <source src="@/assets/video/demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <a href="#install" class="cta-button accent-button">Install for free</a>
       </div>
