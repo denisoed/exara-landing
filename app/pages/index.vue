@@ -117,7 +117,7 @@ onMounted(() => {
             Your browser does not support the video tag.
           </video>
         </div>
-        <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
+        <InstallBtn class="accent-button">Install for free</InstallBtn>
       </div>
     </section>
 
@@ -225,7 +225,7 @@ onMounted(() => {
         </div>
 
         <div class="solution-cta">
-          <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install for free</a>
+          <InstallBtn class="accent-button">Install for free</InstallBtn>
         </div>
       </div>
     </section>
@@ -374,7 +374,7 @@ onMounted(() => {
                 Multilingual support
               </li>
             </ul>
-            <a href="exara-1.0.0-chrome.zip" download class="cta-button">Start for free</a>
+            <InstallBtn>Start for free</InstallBtn>
           </div>
           <div class="pricing-plan plan-pro">
             <h3>PRO</h3>
@@ -406,7 +406,7 @@ onMounted(() => {
                 Advanced AI models for more accurate explanations
               </li>
             </ul>
-            <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Go to PRO</a>
+            <InstallBtn class="accent-button">Go to PRO</InstallBtn>
             <p class="pricing-note">*Requests do not expire and carry over to the next period.</p>
           </div>
         </div>
@@ -478,7 +478,7 @@ onMounted(() => {
       <div class="container">
         <h2>Ready to understand more?</h2>
         <p>Install Exara now and start using the AI-assistant for reading.</p>
-        <a href="exara-1.0.0-chrome.zip" download class="cta-button accent-button">Install Exara for free</a>
+        <InstallBtn class="accent-button">Install Exara for free</InstallBtn>
       </div>
     </section>
 

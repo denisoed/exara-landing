@@ -5,5 +5,8 @@
       <slot />
     </Transition>
     <AppFooter />
+    <ClientOnly>
+      <ChromeModal />
+    </ClientOnly>
   </div>
 </template>
