@@ -1,4 +1,5 @@
 import { defineEventHandler, readBody, createError } from 'h3';
+import api from '../services/axios.service';
 
 export default defineEventHandler(async event => {
   try {
@@ -14,6 +15,8 @@ export default defineEventHandler(async event => {
     }
 
     const { email } = body;
+
+    await api.post('/api/emails', { email });
 
     return {
       success: true,
