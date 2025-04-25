@@ -8,11 +8,6 @@ const handleGoToPro = () => {
   showAlphaTestModal.value = true;
 };
 
-const handleEmailSubmitted = email => {
-  console.log('Email submitted:', email);
-  // Here you would typically send the email to your backend
-};
-
 onMounted(() => {
   // --- Cookie Consent --- //
   const cookieConsent = document.getElementById('cookie-consent');
@@ -120,7 +115,7 @@ onMounted(() => {
 <template>
   <main>
     <!-- Alpha Test Modal -->
-    <AlphaTestModal v-model="showAlphaTestModal" @emailSubmitted="handleEmailSubmitted" />
+    <AlphaTestModal v-model="showAlphaTestModal" />
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section section-alt-bg">

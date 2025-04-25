@@ -47,7 +47,7 @@
 <script setup>
 import { ref, watch, computed } from 'vue';
 
-const emit = defineEmits(['update:modelValue', 'emailSubmitted']);
+const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({
   modelValue: {
@@ -122,7 +122,7 @@ function updateModelValue(newVal) {
   }
 }
 
-function submitEmail() {
+async function submitEmail() {
   hasInteracted.value = true;
 
   if (!email.value) {
@@ -138,11 +138,16 @@ function submitEmail() {
 
   isSubmitting.value = true;
 
-  // Simulate API call
-  setTimeout(() => {
+  try {
+    await $fetch('/api/email', {
+      method: 'POST',
+      body: { email: email.value },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     isSubmitting.value = false;
     submitSuccess.value = true;
-    emit('emailSubmitted', email.value);
 
     // Close modal after success message display
     setTimeout(() => {
@@ -153,7 +158,11 @@ function submitEmail() {
       hasInteracted.value = false;
       submitSuccess.value = false;
     }, 4000);
-  }, 1000);
+  } catch (error) {
+    isSubmitting.value = false;
+    console.error('Error submitting email:', error);
+    emailError.value = error?.data?.message || 'Failed to submit email. Please try again.';
+  }
 }
 
 watch(

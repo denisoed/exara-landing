@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     preference: 'dark',
   },
   runtimeConfig: {
+    apiUrl: process.env.NUXT_API_URL || '',
     public: {
       version: pkg.version,
     },

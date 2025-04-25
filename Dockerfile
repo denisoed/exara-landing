@@ -21,10 +21,10 @@ RUN npm run build
 # Run
 FROM base
 
-ARG api_url
+ARG NUXT_API_URL
 
 ENV NODE_ENV=production
-ENV API_URL=${api_url}
+ENV NUXT_API_URL=${NUXT_API_URL}
 ENV PORT=$PORT
 
 COPY --from=build /src/.output /src/.output
