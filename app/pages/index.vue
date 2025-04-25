@@ -1,4 +1,18 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+import AlphaTestModal from '@/components/AlphaTestModal.vue';
+
+const showAlphaTestModal = ref(false);
+
+const handleGoToPro = () => {
+  showAlphaTestModal.value = true;
+};
+
+const handleEmailSubmitted = email => {
+  console.log('Email submitted:', email);
+  // Here you would typically send the email to your backend
+};
+
 onMounted(() => {
   // --- Cookie Consent --- //
   const cookieConsent = document.getElementById('cookie-consent');
@@ -105,6 +119,9 @@ onMounted(() => {
 
 <template>
   <main>
+    <!-- Alpha Test Modal -->
+    <AlphaTestModal v-model="showAlphaTestModal" @emailSubmitted="handleEmailSubmitted" />
+
     <!-- Hero Section -->
     <section id="hero" class="hero-section section-alt-bg">
       <div class="container">
@@ -380,7 +397,7 @@ onMounted(() => {
             <h3>PRO</h3>
             <!-- Уточните модель: за пакет или в месяц -->
             <div class="price">
-              0$
+              5$
               <span>/ per 500 requests</span>
             </div>
             <p class="plan-description">For active use and complex tasks.</p>
@@ -406,11 +423,11 @@ onMounted(() => {
                 Advanced AI models for more accurate explanations
               </li>
             </ul>
-            <InstallBtn class="accent-button">Go to PRO</InstallBtn>
+            <button class="cta-button accent-button" @click="handleGoToPro">Go to PRO</button>
             <p class="pricing-note">*Requests do not expire and carry over to the next period.</p>
           </div>
         </div>
-        <p class="pricing-comparison highlighted">$5 is just the cost of a few cups of coffee for hundreds of instant explanations.</p>
+        <p class="pricing-comparison highlighted">5$ is just the cost of a few cups of coffee for hundreds of instant explanations.</p>
       </div>
     </section>
 
