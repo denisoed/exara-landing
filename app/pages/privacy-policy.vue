@@ -95,7 +95,7 @@ definePageMeta({
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
         <p>
           Email:
-          <a href="mailto:support@exara.ai">support@exara.ai</a>
+          <a href="mailto:exara.pro@gmail.com">exara.pro@gmail.com</a>
         </p>
 
         <router-link to="/" class="back-link">← Back to Home</router-link>

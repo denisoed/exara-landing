@@ -22,7 +22,7 @@ definePageMeta({
 
           <div class="contact-method">
             <span>Email:</span>
-            <a href="mailto:support@exara.ai">support@exara.ai</a>
+            <a href="mailto:exara.pro@gmail.com">exara.pro@gmail.com</a>
           </div>
 
           <div class="contact-method">

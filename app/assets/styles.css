@@ -979,9 +979,7 @@ section {
     margin: var(--spacing-md) 0;
   }
   .footer-links a {
-    margin: 0 var(--spacing-xs); /* Reduce space between links */
     display: inline-block; /* Prevent wrapping issues */
-    margin-bottom: var(--spacing-xs);
   }
   .copyright {
     margin-top: var(--spacing-md);
