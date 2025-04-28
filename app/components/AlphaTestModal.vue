@@ -23,7 +23,6 @@
               v-model="email"
               @input="validateEmail"
               placeholder="Your email address"
-              autofocus
               required
               class="email-input"
               :class="{ 'input-error': hasInteracted && emailError }" />
