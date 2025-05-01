@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import AlphaTestModal from '@/components/AlphaTestModal.vue';
+import { EXTENSION_FILE_NAME } from '~/config';
 
 const showAlphaTestModal = ref(false);
 
@@ -436,7 +437,7 @@ onMounted(() => {
             <div class="faq-answer">
               <p>
                 Go to the
-                <a href="exara-1.0.0-chrome.zip" download target="_blank">extension store</a>
+                <a :href="EXTENSION_FILE_NAME" download target="_blank">extension store</a>
                 of your browser (e.g. Chrome Web Store) and click "Install". After installation, the Exara icon will appear on the browser toolbar.
               </p>
             </div>

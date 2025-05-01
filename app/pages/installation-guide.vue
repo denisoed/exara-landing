@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EXTENSION_FILE_NAME } from '~/config';
+
 definePageMeta({
   layout: 'clear',
 });
@@ -20,7 +22,7 @@ definePageMeta({
           <ol class="steps-list">
             <li>
               <strong>Extract the downloaded ZIP file</strong>
-              <p>After downloading, locate the ZIP file (exara-1.0.0-chrome.zip) and extract its contents to a folder on your computer.</p>
+              <p>After downloading, locate the ZIP file ({{ EXTENSION_FILE_NAME }}) and extract its contents to a folder on your computer.</p>
             </li>
 
             <li>

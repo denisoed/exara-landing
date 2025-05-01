@@ -11,6 +11,7 @@
 import { useRouter } from 'vue-router';
 import { downloadLocalFile } from '~/helpers/downloader';
 import { isChrome, isMobile } from '~/helpers/detecters';
+import { EXTENSION_FILE_NAME } from '~/config';
 
 const router = useRouter();
 
@@ -20,7 +21,7 @@ const downloadFile = () => {
   if (!isChrome() || isMobile()) {
     showModal.value = true;
   } else {
-    downloadLocalFile('exara-1.0.0-chrome.zip', 'exara-1.0.0-chrome.zip');
+    downloadLocalFile(EXTENSION_FILE_NAME, EXTENSION_FILE_NAME);
     router.push('/installation-guide');
   }
 };
