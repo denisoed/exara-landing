@@ -1,6 +1,27 @@
 # Exara Landing Page
 
-This repository contains the static landing page for the Exara browser extension.
+![Exara Banner](./public/banner.png)
+
+Exara is an AI-powered browser extension that instantly explains unfamiliar words and terms directly on web pages. Simply highlight text to get an explanation—no need to lose context or open new tabs.
+
+[Go to the Exara Extension on GitHub](https://github.com/denisoed/exara-extension)
+
+## Key Features
+
+- Instant explanations for highlighted text right on the page
+- PDF support via a built-in viewer
+- Ability to ask a clarifying question for deeper understanding
+- Cross-browser compatibility
+- Free plan: 25 explanations per month
+
+## Who is Exara for?
+
+- Students and researchers
+- Professionals working with industry-specific terminology
+- Language learners
+- Anyone encountering complex or new concepts in text
+
+---
 
 ## Docker Setup for Production
 
