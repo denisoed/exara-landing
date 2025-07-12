@@ -1,6 +1,18 @@
 # Exara Landing Page
 
-This repository contains the static landing page for the Exara browser extension.
+Exara is an AI-powered browser extension that instantly explains unfamiliar words and terms right on the page. This repository contains the landing website built with Nuxt 3 to showcase and promote the extension.
+
+The Chrome extension itself can be found here: [exara-extension](https://github.com/denisoed/exara-extension).
+
+<video src="public/demo.mp4" autoplay loop muted playsinline></video>
+
+## Technologies Used
+
+- **Nuxt 3** and **Vue 3** for the frontend framework
+- **Nuxt UI** (Tailwind-based design system)
+- **Pinia** for state management
+- **TypeScript**
+- **Nginx** to serve the generated static site in production
 
 ## Docker Setup for Production
 
