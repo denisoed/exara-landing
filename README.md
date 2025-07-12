@@ -4,7 +4,9 @@
 
 Exara is an AI-powered browser extension that instantly explains unfamiliar words and terms directly on web pages. Simply highlight text to get an explanation—no need to lose context or open new tabs.
 
-[Go to the Exara Extension on GitHub](https://github.com/denisoed/exara-extension)
+<p align="center">
+  <a href="https://github.com/denisoed/exara-extension" style="width: 100%;display:inline-block; background:#0057ff; color:#fff; font-size:1.2em; font-weight:bold; padding:0.8em 2em; border-radius:8px; text-decoration:none; margin: 1em 0;">Go to the Exara Extension on GitHub</a>
+</p>
 
 ## Key Features
 
